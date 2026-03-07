@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/GoogleTagManager';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
+import { GoogleAdSense } from '@/components/GoogleAdSense';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -28,12 +29,14 @@ export default function RootLayout({
 }) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
   const gaId = process.env.NEXT_PUBLIC_GA_ID || '';
+  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-9923155979879148';
 
   return (
     <html lang="en">
       <head>
         <GoogleTagManager gtmId={gtmId} />
         <GoogleAnalytics gaId={gaId} />
+        <GoogleAdSense publisherId={adsenseId} />
       </head>
       <body>
         <GoogleTagManagerNoScript gtmId={gtmId} />
