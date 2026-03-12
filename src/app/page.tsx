@@ -351,7 +351,7 @@ export default function Home() {
         <div style={{ padding: '16px 20px', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
           <div style={{ marginBottom: '12px' }}>Updated every 15 min</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none', hover: { color: 'var(--text-primary)' } }}>
+            <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
               About
             </a>
             <a href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
