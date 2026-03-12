@@ -122,7 +122,7 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy, please contact us at:
             </p>
             <p style={{ marginBottom: '8px' }}>
-              Email: <a href="mailto:privacy@skipscroll.com" style={{ color: '#6366f1' }}>privacy@skipscroll.com</a>
+              Email: <a href="mailto:account@skipscroll.com" style={{ color: '#6366f1' }}>account@skipscroll.com</a>
             </p>
             <p>
               Or visit our <Link href="/contact" style={{ color: '#6366f1' }}>Contact page</Link>.

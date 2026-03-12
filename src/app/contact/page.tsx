@@ -22,36 +22,11 @@ export default function ContactPage() {
           <section style={{ marginBottom: '32px' }}>
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Email Us</h2>
             <p style={{ marginBottom: '16px' }}>
-              For general inquiries, feedback, or support:
+              For all inquiries, feedback, support, or business matters:
             </p>
             <p style={{ marginBottom: '8px' }}>
-              <strong>General Inquiries:</strong>{' '}
-              <a href="mailto:hello@skipscroll.com" style={{ color: '#6366f1' }}>
-                hello@skipscroll.com
-              </a>
-            </p>
-            <p style={{ marginBottom: '8px' }}>
-              <strong>Support:</strong>{' '}
-              <a href="mailto:support@skipscroll.com" style={{ color: '#6366f1' }}>
-                support@skipscroll.com
-              </a>
-            </p>
-            <p style={{ marginBottom: '8px' }}>
-              <strong>Privacy Concerns:</strong>{' '}
-              <a href="mailto:privacy@skipscroll.com" style={{ color: '#6366f1' }}>
-                privacy@skipscroll.com
-              </a>
-            </p>
-            <p style={{ marginBottom: '8px' }}>
-              <strong>Legal Matters:</strong>{' '}
-              <a href="mailto:legal@skipscroll.com" style={{ color: '#6366f1' }}>
-                legal@skipscroll.com
-              </a>
-            </p>
-            <p style={{ marginBottom: '8px' }}>
-              <strong>Advertising & Partnerships:</strong>{' '}
-              <a href="mailto:partnerships@skipscroll.com" style={{ color: '#6366f1' }}>
-                partnerships@skipscroll.com
+              <a href="mailto:account@skipscroll.com" style={{ color: '#6366f1', fontSize: '18px', fontWeight: '600' }}>
+                account@skipscroll.com
               </a>
             </p>
           </section>
@@ -83,7 +58,7 @@ export default function ContactPage() {
             <div style={{ marginBottom: '24px' }}>
               <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px' }}>Can I request a specific platform be added?</h3>
               <p style={{ marginBottom: '16px', color: 'var(--text-muted)' }}>
-                Absolutely! Send us an email at <a href="mailto:hello@skipscroll.com" style={{ color: '#6366f1' }}>hello@skipscroll.com</a> with your suggestion.
+                Absolutely! Send us an email at <a href="mailto:account@skipscroll.com" style={{ color: '#6366f1' }}>account@skipscroll.com</a> with your suggestion.
               </p>
             </div>
 
@@ -106,8 +81,8 @@ export default function ContactPage() {
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Report an Issue</h2>
             <p style={{ marginBottom: '16px' }}>
               If you encounter any technical issues or bugs, please email us at{' '}
-              <a href="mailto:support@skipscroll.com" style={{ color: '#6366f1' }}>
-                support@skipscroll.com
+              <a href="mailto:account@skipscroll.com" style={{ color: '#6366f1' }}>
+                account@skipscroll.com
               </a>{' '}
               with:
             </p>
@@ -123,8 +98,8 @@ export default function ContactPage() {
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Business Inquiries</h2>
             <p style={{ marginBottom: '16px' }}>
               Interested in advertising, partnerships, or data licensing? Contact us at{' '}
-              <a href="mailto:partnerships@skipscroll.com" style={{ color: '#6366f1' }}>
-                partnerships@skipscroll.com
+              <a href="mailto:account@skipscroll.com" style={{ color: '#6366f1' }}>
+                account@skipscroll.com
               </a>
             </p>
           </section>
@@ -133,8 +108,8 @@ export default function ContactPage() {
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Legal Notices</h2>
             <p style={{ marginBottom: '16px' }}>
               For copyright claims, trademark issues, or other legal matters, please contact{' '}
-              <a href="mailto:legal@skipscroll.com" style={{ color: '#6366f1' }}>
-                legal@skipscroll.com
+              <a href="mailto:account@skipscroll.com" style={{ color: '#6366f1' }}>
+                account@skipscroll.com
               </a>
             </p>
             <p style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--text-muted)' }}>

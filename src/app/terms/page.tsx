@@ -133,7 +133,7 @@ export default function TermsPage() {
               If you have any questions about these Terms, please contact us:
             </p>
             <p style={{ marginBottom: '8px' }}>
-              Email: <a href="mailto:legal@skipscroll.com" style={{ color: '#6366f1' }}>legal@skipscroll.com</a>
+              Email: <a href="mailto:account@skipscroll.com" style={{ color: '#6366f1' }}>account@skipscroll.com</a>
             </p>
             <p>
               Or visit our <Link href="/contact" style={{ color: '#6366f1' }}>Contact page</Link>.
