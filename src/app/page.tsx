@@ -349,7 +349,21 @@ export default function Home() {
 
         {/* Footer */}
         <div style={{ padding: '16px 20px', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
-          Updated every 15 min
+          <div style={{ marginBottom: '12px' }}>Updated every 15 min</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none', hover: { color: 'var(--text-primary)' } }}>
+              About
+            </a>
+            <a href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+              Privacy Policy
+            </a>
+            <a href="/terms" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+              Terms of Service
+            </a>
+            <a href="/contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+              Contact
+            </a>
+          </div>
         </div>
       </aside>
 
@@ -686,6 +700,27 @@ export default function Home() {
             </div>
           )}
         </section>
+
+        {/* Footer Links */}
+        <footer style={{
+          marginTop: '48px',
+          paddingTop: '24px',
+          borderTop: '1px solid var(--border-light)',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '16px',
+          justifyContent: 'center',
+          fontSize: '13px',
+          color: 'var(--text-muted)'
+        }}>
+          <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>About</a>
+          <span>•</span>
+          <a href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Privacy Policy</a>
+          <span>•</span>
+          <a href="/terms" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Terms of Service</a>
+          <span>•</span>
+          <a href="/contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Contact</a>
+        </footer>
       </main>
 
       {/* Trend Detail Panel */}
