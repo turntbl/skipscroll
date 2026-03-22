@@ -381,7 +381,7 @@ export default function Home() {
           </div>
           {/* AdSense Display Ad - Top of Page */}
           <DisplayAd
-            adSlot="1234567890"
+            adSlot="8859426664"
             className="sponsored-card"
             style={{ minHeight: '90px' }}
           />
@@ -572,7 +572,7 @@ export default function Home() {
 
             {/* AdSense Display Ad - Platform View */}
             <DisplayAd
-              adSlot="2345678901"
+              adSlot="4812937691"
               className="platform-ad-card"
               style={{ minHeight: '250px', marginBottom: '32px' }}
             />
@@ -669,20 +669,22 @@ export default function Home() {
                       {Math.abs(trend.change_percent)}%
                     </span>
                   </div>
-                  {/* AdSense In-Feed Ad after positions 8, 16, 24 */}
+                  {/* AdSense Display Ad after positions 8, 16, 24 */}
                   {(index === 7 || index === 15 || index === 23) && (
-                    <InFeedAd
-                      adSlot={index === 7 ? '3456789012' : index === 15 ? '4567890123' : '5678901234'}
+                    <DisplayAd
+                      adSlot={index === 7 ? '6592923220' : index === 15 ? '3415528299' : '2102446625'}
                       className="trend-list-ad"
+                      style={{ minHeight: '100px', margin: '16px 0' }}
                     />
                   )}
                 </React.Fragment>
               ))}
               {/* AdSense In-Feed Ad at end if list is short */}
               {filteredTrends.length > 0 && filteredTrends.length < 8 && (
-                <InFeedAd
-                  adSlot="6789012345"
+                <DisplayAd
+                  adSlot="5070423140"
                   className="trend-list-ad trend-list-ad-end"
+                  style={{ minHeight: '100px', margin: '16px 0' }}
                 />
               )}
             </div>

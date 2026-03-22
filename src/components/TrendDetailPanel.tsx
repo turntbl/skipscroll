@@ -216,7 +216,7 @@ export function TrendDetailPanel({ trend, onClose }: TrendDetailPanelProps) {
 
           {/* AdSense Ad in Detail Panel */}
           <DisplayAd
-            adSlot="7890123456"
+            adSlot="4158331571"
             className="panel-ad"
             style={{ minHeight: '250px', marginBottom: '24px' }}
           />
