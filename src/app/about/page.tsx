@@ -67,6 +67,46 @@ export default function AboutPage() {
           </section>
 
           <section style={{ marginBottom: '32px' }}>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Our Story</h2>
+            <p style={{ marginBottom: '16px' }}>
+              SkipScroll was founded in early 2026 by a team of developers, designers, and social media enthusiasts who were frustrated with how much time they were spending on social media just to stay informed. We found ourselves scrolling for hours, only to realize we'd learned very little about what was actually trending or important.
+            </p>
+            <p style={{ marginBottom: '16px' }}>
+              After months of development and testing, we launched SkipScroll with a simple mission: make it easy for anyone to know what's trending across all major social platforms in seconds, not hours. What started as a personal tool quickly grew into a platform used by content creators, marketers, journalists, and everyday people who just want to stay informed without the time commitment.
+            </p>
+            <p style={{ marginBottom: '16px' }}>
+              Today, SkipScroll tracks trends across TikTok, Instagram, YouTube, Reddit, Google, Spotify, Twitch, and Bluesky, updating every 15 minutes to ensure you're seeing the most current information available.
+            </p>
+          </section>
+
+          <section style={{ marginBottom: '32px' }}>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Our Team</h2>
+            <p style={{ marginBottom: '16px' }}>
+              SkipScroll is built and maintained by a small, dedicated team passionate about making social media more accessible and less time-consuming. Our team includes:
+            </p>
+            <ul style={{ marginLeft: '24px', marginBottom: '16px' }}>
+              <li style={{ marginBottom: '10px' }}><strong>Engineers:</strong> Building and maintaining the data aggregation systems that power SkipScroll</li>
+              <li style={{ marginBottom: '10px' }}><strong>Designers:</strong> Creating an intuitive, beautiful interface that makes browsing trends effortless</li>
+              <li style={{ marginBottom: '10px' }}><strong>Data Analysts:</strong> Ensuring the accuracy and relevance of trending data</li>
+              <li style={{ marginBottom: '10px' }}><strong>Content Strategists:</strong> Producing helpful resources and insights about social media trends</li>
+            </ul>
+            <p style={{ marginBottom: '16px' }}>
+              We're a remote-first team distributed across the United States, united by our belief that staying informed shouldn't require endless scrolling.
+            </p>
+          </section>
+
+          <section style={{ marginBottom: '32px' }}>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Our Values</h2>
+            <ul style={{ marginLeft: '24px', marginBottom: '16px', lineHeight: '1.8' }}>
+              <li style={{ marginBottom: '12px' }}><strong>Respect Your Time:</strong> We're committed to delivering value quickly without wasting your time on unnecessary features or content.</li>
+              <li style={{ marginBottom: '12px' }}><strong>Privacy First:</strong> We collect minimal data and never sell personal information. You don't even need an account to use SkipScroll.</li>
+              <li style={{ marginBottom: '12px' }}><strong>Transparency:</strong> We're open about how our platform works, where our data comes from, and how we make money (advertising).</li>
+              <li style={{ marginBottom: '12px' }}><strong>Continuous Improvement:</strong> We're constantly working to add new platforms, improve accuracy, and enhance the user experience based on feedback.</li>
+              <li style={{ marginBottom: '12px' }}><strong>Accessibility:</strong> SkipScroll should be free and accessible to everyone, regardless of technical expertise or financial resources.</li>
+            </ul>
+          </section>
+
+          <section style={{ marginBottom: '32px' }}>
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Our Platforms</h2>
             <p style={{ marginBottom: '16px' }}>We track trends across:</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
