@@ -1,7 +1,7 @@
 /**
- * Spotify Trends Scraper
- * Fetches viral/trending songs
- * Updated: March 2026 (from Top40Weekly, Spotify Charts)
+ * Spotify Trends Scraper with API Integration
+ * Fetches viral/trending songs with 30-second preview URLs
+ * Updated: March 22, 2026
  */
 
 export interface SpotifyTrend {
@@ -11,15 +11,145 @@ export interface SpotifyTrend {
   streams: number;
   weeksOnChart: number;
   category: string;
+  previewUrl?: string;
+  albumArt?: string;
+  spotifyUrl?: string;
+}
+
+interface SpotifyAccessToken {
+  access_token: string;
+  token_type: string;
+  expires_in: number;
+}
+
+interface SpotifyTrack {
+  id: string;
+  name: string;
+  artists: { name: string }[];
+  preview_url: string | null;
+  album: {
+    images: { url: string; height: number; width: number }[];
+  };
+  external_urls: {
+    spotify: string;
+  };
+  popularity: number;
+}
+
+interface SpotifySearchResponse {
+  tracks: {
+    items: SpotifyTrack[];
+  };
 }
 
 /**
- * Try to fetch from Spotify Charts RSS or public endpoint
+ * Get Spotify API access token using Client Credentials flow
+ */
+async function getSpotifyAccessToken(): Promise<string | null> {
+  const clientId = process.env.SPOTIFY_CLIENT_ID;
+  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+
+  if (!clientId || !clientSecret) {
+    console.log('[Spotify] Missing API credentials, using fallback data');
+    return null;
+  }
+
+  try {
+    const response = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + Buffer.from(`${clientId}:${clientSecret}`).toString('base64'),
+      },
+      body: 'grant_type=client_credentials',
+      next: { revalidate: 3000 }, // Cache token for 50 minutes (expires in 60)
+    });
+
+    if (!response.ok) {
+      console.error(`[Spotify] Token request failed: ${response.status}`);
+      return null;
+    }
+
+    const data: SpotifyAccessToken = await response.json();
+    return data.access_token;
+  } catch (error) {
+    console.error('[Spotify] Error getting access token:', error);
+    return null;
+  }
+}
+
+/**
+ * Search for a track on Spotify and get its details including preview
+ */
+async function searchSpotifyTrack(trackName: string, artistName: string, token: string): Promise<SpotifyTrack | null> {
+  try {
+    const query = encodeURIComponent(`track:${trackName} artist:${artistName}`);
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track&limit=1`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+      next: { revalidate: 900 }, // Cache for 15 minutes
+    });
+
+    if (!response.ok) {
+      console.error(`[Spotify] Search failed for "${trackName}": ${response.status}`);
+      return null;
+    }
+
+    const data: SpotifySearchResponse = await response.json();
+
+    if (data.tracks.items.length === 0) {
+      return null;
+    }
+
+    return data.tracks.items[0];
+  } catch (error) {
+    console.error(`[Spotify] Error searching for "${trackName}":`, error);
+    return null;
+  }
+}
+
+/**
+ * Fetch Spotify Charts with API enrichment
  */
 async function fetchSpotifyCharts(): Promise<SpotifyTrend[]> {
-  // Spotify doesn't have a public charts API without OAuth
-  // Return fallback data with current chart information
-  return getFallbackSpotifyTrends();
+  console.log('[Spotify] Fetching trending songs...');
+
+  // Get access token
+  const token = await getSpotifyAccessToken();
+
+  // Start with fallback data (current trending songs)
+  const fallbackSongs = getFallbackSpotifyTrends();
+
+  // If we have a token, enrich with API data
+  if (token) {
+    console.log('[Spotify] Enriching with API data (preview URLs, album art)...');
+
+    const enrichedSongs = await Promise.all(
+      fallbackSongs.map(async (song) => {
+        const track = await searchSpotifyTrack(song.name, song.artist, token);
+
+        if (track) {
+          return {
+            ...song,
+            previewUrl: track.preview_url || undefined,
+            albumArt: track.album.images[0]?.url || undefined,
+            spotifyUrl: track.external_urls.spotify,
+          };
+        }
+
+        return song;
+      })
+    );
+
+    const withPreviews = enrichedSongs.filter(s => s.previewUrl).length;
+    console.log(`[Spotify] Enriched ${withPreviews}/${enrichedSongs.length} songs with preview URLs`);
+
+    return enrichedSongs;
+  }
+
+  console.log('[Spotify] Using fallback data without API enrichment');
+  return fallbackSongs;
 }
 
 /**
@@ -106,9 +236,12 @@ export async function getSpotifyTrends() {
       artist: song.artist,
       streams: song.streams,
       weeksOnChart: song.weeksOnChart,
+      previewUrl: song.previewUrl,
+      albumArt: song.albumArt,
+      spotifyUrl: song.spotifyUrl,
     }));
   } catch (error) {
-    console.error('Spotify trends error:', error);
+    console.error('[Spotify] Error in getSpotifyTrends:', error);
     return [];
   }
 }

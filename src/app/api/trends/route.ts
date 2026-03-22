@@ -35,6 +35,9 @@ export interface Trend {
   artist?: string;
   streams?: number;
   weeksOnChart?: number;
+  previewUrl?: string;
+  albumArt?: string;
+  spotifyUrl?: string;
 }
 
 export const dynamic = 'force-dynamic'; // Don't cache at build time
