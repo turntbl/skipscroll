@@ -22,6 +22,7 @@ import {
   getPlatformIcon,
 } from '@/components/icons';
 import { TrendDetailPanel } from '@/components/TrendDetailPanel';
+import { DisplayAd, InFeedAd } from '@/components/AdSenseAd';
 
 interface RedditPost {
   id: string;
@@ -372,17 +373,18 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="main-content" ref={mainContentRef}>
-        {/* Header Row: Last Updated + Sponsored */}
+        {/* Header Row: Last Updated + Ad */}
         <div className="header-row">
           <div className="status-card">
             <span className="status-label">Last updated:</span>
             <span className="status-value">{formatLastUpdated()}</span>
           </div>
-          <div className="sponsored-card">
-            <span className="sponsored-label">SPONSORED</span>
-            <span className="sponsored-text">Discover trending products tailored to what's hot right now</span>
-            <a href="#" className="sponsored-cta">Learn More →</a>
-          </div>
+          {/* AdSense Display Ad - Top of Page */}
+          <DisplayAd
+            adSlot="1234567890"
+            className="sponsored-card"
+            style={{ minHeight: '90px' }}
+          />
         </div>
 
         {error && (
@@ -568,17 +570,12 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Platform Ad Card */}
-            <div className="platform-ad-card">
-              <div className="platform-ad-header">
-                <span className="ad-label">SPONSORED</span>
-              </div>
-              <div className="platform-ad-content">
-                <h4>Boost Your {platforms.find(p => p.id === selectedPlatform)?.name} Presence</h4>
-                <p>Get more visibility with targeted promotion tools for creators and brands.</p>
-                <a href="#" className="platform-ad-cta">Get Started</a>
-              </div>
-            </div>
+            {/* AdSense Display Ad - Platform View */}
+            <DisplayAd
+              adSlot="2345678901"
+              className="platform-ad-card"
+              style={{ minHeight: '250px', marginBottom: '32px' }}
+            />
           </>
         )}
 
@@ -672,27 +669,21 @@ export default function Home() {
                       {Math.abs(trend.change_percent)}%
                     </span>
                   </div>
-                  {/* Sponsored banner after position 8 or 16 */}
-                  {(index === 7 || index === 15) && (
-                    <div className="trend-list-ad">
-                      <span className="trend-list-ad-label">SPONSORED</span>
-                      <span className="trend-list-ad-text">
-                        {index === 7 ? 'Boost your content with trending insights' : 'Grow your audience with real-time trend data'}
-                      </span>
-                      <a href="#" className="trend-list-ad-cta">Learn More →</a>
-                    </div>
+                  {/* AdSense In-Feed Ad after positions 8, 16, 24 */}
+                  {(index === 7 || index === 15 || index === 23) && (
+                    <InFeedAd
+                      adSlot={index === 7 ? '3456789012' : index === 15 ? '4567890123' : '5678901234'}
+                      className="trend-list-ad"
+                    />
                   )}
                 </React.Fragment>
               ))}
-              {/* If list is shorter than 8, add sponsored at end */}
+              {/* AdSense In-Feed Ad at end if list is short */}
               {filteredTrends.length > 0 && filteredTrends.length < 8 && (
-                <div className="trend-list-ad trend-list-ad-end">
-                  <span className="trend-list-ad-label">SPONSORED</span>
-                  <span className="trend-list-ad-text">
-                    Boost your content with trending insights
-                  </span>
-                  <a href="#" className="trend-list-ad-cta">Learn More →</a>
-                </div>
+                <InFeedAd
+                  adSlot="6789012345"
+                  className="trend-list-ad trend-list-ad-end"
+                />
               )}
             </div>
           )}

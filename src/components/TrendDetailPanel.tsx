@@ -6,6 +6,7 @@ import {
   ChevronRightIcon,
   getPlatformIcon,
 } from './icons';
+import { DisplayAd } from './AdSenseAd';
 
 interface RedditPost {
   id: string;
@@ -213,15 +214,12 @@ export function TrendDetailPanel({ trend, onClose }: TrendDetailPanelProps) {
             <span className="panel-category-value">{trend.category}</span>
           </div>
 
-          {/* Sponsored Ad */}
-          <div className="panel-ad">
-            <div className="panel-ad-label">SPONSORED</div>
-            <div className="panel-ad-content">
-              <p className="panel-ad-title">Trending tools for creators</p>
-              <p className="panel-ad-text">Grow your audience with insights powered by real-time trend data.</p>
-              <a href="#" className="panel-ad-cta">Learn More</a>
-            </div>
-          </div>
+          {/* AdSense Ad in Detail Panel */}
+          <DisplayAd
+            adSlot="7890123456"
+            className="panel-ad"
+            style={{ minHeight: '250px', marginBottom: '24px' }}
+          />
 
           {/* Why Trending */}
           <div className="panel-section">
