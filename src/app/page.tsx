@@ -383,7 +383,7 @@ export default function Home() {
           <DisplayAd
             adSlot="8859426664"
             className="sponsored-card"
-            style={{ minHeight: '90px' }}
+            style={{ minHeight: '90px', width: '100%', maxWidth: '728px' }}
           />
         </div>
 
@@ -574,7 +574,7 @@ export default function Home() {
             <DisplayAd
               adSlot="4812937691"
               className="platform-ad-card"
-              style={{ minHeight: '250px', marginBottom: '32px' }}
+              style={{ minHeight: '250px', width: '100%', marginBottom: '32px' }}
             />
           </>
         )}
@@ -674,7 +674,7 @@ export default function Home() {
                     <DisplayAd
                       adSlot={index === 7 ? '6592923220' : index === 15 ? '3415528299' : '2102446625'}
                       className="trend-list-ad"
-                      style={{ minHeight: '100px', margin: '16px 0' }}
+                      style={{ minHeight: '100px', width: '100%', margin: '16px 0' }}
                     />
                   )}
                 </React.Fragment>
@@ -684,7 +684,7 @@ export default function Home() {
                 <DisplayAd
                   adSlot="5070423140"
                   className="trend-list-ad trend-list-ad-end"
-                  style={{ minHeight: '100px', margin: '16px 0' }}
+                  style={{ minHeight: '100px', width: '100%', margin: '16px 0' }}
                 />
               )}
             </div>

@@ -46,10 +46,10 @@ export function AdSenseAd({
   }, []);
 
   return (
-    <div className={`adsense-container ${className}`} style={style}>
+    <div className={`adsense-container ${className}`} style={{ minWidth: '250px', ...style }}>
       <ins
         className="adsbygoogle"
-        style={{ display: 'block', ...style }}
+        style={{ display: 'block' }}
         data-ad-client={publisherId}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}

@@ -218,7 +218,7 @@ export function TrendDetailPanel({ trend, onClose }: TrendDetailPanelProps) {
           <DisplayAd
             adSlot="4158331571"
             className="panel-ad"
-            style={{ minHeight: '250px', marginBottom: '24px' }}
+            style={{ minHeight: '250px', width: '100%', marginBottom: '24px' }}
           />
 
           {/* Why Trending */}
