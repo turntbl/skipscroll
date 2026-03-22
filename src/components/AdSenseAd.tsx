@@ -37,17 +37,35 @@ export function AdSenseAd({
   const publisherId = process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-9923155979879148';
 
   useEffect(() => {
-    // Wait for next frame to ensure DOM is fully rendered with dimensions
-    const timer = setTimeout(() => {
+    let rafId1: number;
+    let rafId2: number;
+
+    const initAd = () => {
       try {
         // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (err) {
         console.error('AdSense error:', err);
       }
-    }, 100);
+    };
 
-    return () => clearTimeout(timer);
+    const scheduleInit = () => {
+      rafId1 = requestAnimationFrame(() => {
+        rafId2 = requestAnimationFrame(initAd);
+      });
+    };
+
+    // Wait for window to load to ensure all layout is complete
+    if (document.readyState === 'complete') {
+      scheduleInit();
+    } else {
+      window.addEventListener('load', scheduleInit, { once: true });
+    }
+
+    return () => {
+      if (rafId1) cancelAnimationFrame(rafId1);
+      if (rafId2) cancelAnimationFrame(rafId2);
+    };
   }, []);
 
   return (
