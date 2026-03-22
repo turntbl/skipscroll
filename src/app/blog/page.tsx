@@ -1,11 +1,30 @@
-import Link from 'next/link';
+'use client';
 
-export const metadata = {
-  title: 'Blog - SkipScroll',
-  description: 'Insights, tips, and analysis on social media trends, viral content, and staying informed in the digital age.',
-};
+import Link from 'next/link';
+import {
+  SkipIcon,
+  GlobeIcon,
+  TikTokIcon,
+  XTwitterIcon,
+  InstagramIcon,
+  YouTubeIcon,
+  RedditIcon,
+  GoogleIcon,
+  TwitchIcon,
+  SpotifyIcon,
+  BlueskyIcon,
+  BlogIcon,
+} from '@/components/icons';
 
 const blogPosts = [
+  {
+    slug: 'spotting-trends-before-they-peak',
+    title: 'How to Spot Trending Topics Before They Peak: A Data-Driven Approach',
+    excerpt: 'Master the art of early trend detection to create viral content, stay ahead of competitors, and maximize engagement when it matters most.',
+    date: '2026-03-22',
+    category: 'Strategy',
+    readTime: '10 min read',
+  },
   {
     slug: 'how-to-use-trending-data-for-content-creation',
     title: 'How to Use Trending Data for Content Creation: A Complete Guide',
@@ -48,15 +67,85 @@ const blogPosts = [
   },
 ];
 
+const platforms = [
+  { id: 'all', name: 'All Platforms', icon: GlobeIcon, color: '#6366f1', href: '/' },
+  { id: 'google', name: 'Google', icon: GoogleIcon, color: '#4285F4', href: '/' },
+  { id: 'reddit', name: 'Reddit', icon: RedditIcon, color: '#ff4500', href: '/' },
+  { id: 'youtube', name: 'YouTube', icon: YouTubeIcon, color: '#ff0000', href: '/' },
+  { id: 'tiktok', name: 'TikTok', icon: TikTokIcon, color: '#000000', href: '/' },
+  { id: 'instagram', name: 'Instagram', icon: InstagramIcon, color: '#E4405F', href: '/' },
+  { id: 'twitch', name: 'Twitch', icon: TwitchIcon, color: '#9146ff', href: '/' },
+  { id: 'spotify', name: 'Spotify', icon: SpotifyIcon, color: '#1db954', href: '/' },
+  { id: 'bluesky', name: 'Bluesky', icon: BlueskyIcon, color: '#0085ff', href: '/' },
+  { id: 'twitter', name: 'X / Twitter', icon: XTwitterIcon, color: '#000000', disabled: true },
+  { id: 'blog', name: 'Blog', icon: BlogIcon, color: '#6366f1', href: '/blog' },
+];
+
 export default function BlogPage() {
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
-      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '40px 20px' }}>
-        <Link href="/" style={{ color: '#6366f1', textDecoration: 'none', fontSize: '14px' }}>
-          ← Back to Home
-        </Link>
+    <div className="app-layout">
+      {/* Sidebar */}
+      <aside className="sidebar">
+        {/* Logo */}
+        <div className="logo">
+          <SkipIcon className="logo-icon" />
+          <span className="logo-text">SkipScroll</span>
+        </div>
 
-        <div style={{ textAlign: 'center', margin: '40px 0 60px' }}>
+        {/* Platform Navigation */}
+        <nav className="nav-section" style={{ flex: 1 }}>
+          <div className="nav-label">Platforms</div>
+          {platforms.map((platform) => {
+            const Icon = platform.icon;
+            const isDisabled = 'disabled' in platform && platform.disabled;
+            const isActive = platform.id === 'blog';
+
+            return (
+              <a
+                key={platform.id}
+                href={platform.href || '/'}
+                className={`nav-item ${isActive ? 'active' : ''}`}
+                style={{
+                  textDecoration: 'none',
+                  opacity: isDisabled ? 0.5 : 1,
+                  cursor: isDisabled ? 'not-allowed' : 'pointer',
+                  pointerEvents: isDisabled ? 'none' : 'auto'
+                }}
+                title={isDisabled ? 'Coming soon' : undefined}
+              >
+                <Icon className="nav-icon" />
+                <span>{platform.name}</span>
+                {isDisabled && (
+                  <span style={{ fontSize: '10px', marginLeft: 'auto', color: 'var(--text-muted)' }}>Soon</span>
+                )}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Footer */}
+        <div style={{ padding: '16px 20px', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
+          <div style={{ marginBottom: '12px' }}>Updated every 15 min</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+              About
+            </a>
+            <a href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+              Privacy Policy
+            </a>
+            <a href="/terms" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+              Terms of Service
+            </a>
+            <a href="/contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+              Contact
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="main-content" style={{ padding: '40px 20px', maxWidth: '900px' }}>
+        <div style={{ textAlign: 'center', margin: '0 0 60px' }}>
           <h1 style={{ fontSize: '42px', fontWeight: '700', margin: '0 0 16px' }}>SkipScroll Blog</h1>
           <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
             Insights, strategies, and analysis to help you navigate the world of social media trends
@@ -141,12 +230,23 @@ export default function BlogPage() {
           fontSize: '14px',
           color: 'var(--text-muted)'
         }}>
-          <p>Want to stay updated on social media trends?</p>
-          <Link href="/" style={{ color: '#6366f1', fontWeight: '600' }}>
-            Check out trending topics now →
-          </Link>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '16px',
+            justifyContent: 'center',
+            marginBottom: '20px'
+          }}>
+            <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>About</a>
+            <span>•</span>
+            <a href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Privacy Policy</a>
+            <span>•</span>
+            <a href="/terms" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Terms of Service</a>
+            <span>•</span>
+            <a href="/contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Contact</a>
+          </div>
         </footer>
-      </div>
+      </main>
     </div>
   );
 }

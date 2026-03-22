@@ -13,6 +13,7 @@ import {
   TwitchIcon,
   SpotifyIcon,
   BlueskyIcon,
+  BlogIcon,
   FireIcon,
   TrendingUpIcon,
   TrendingDownIcon,
@@ -81,6 +82,7 @@ const platforms = [
   { id: 'spotify', name: 'Spotify', icon: SpotifyIcon, color: '#1db954' },
   { id: 'bluesky', name: 'Bluesky', icon: BlueskyIcon, color: '#0085ff' },
   { id: 'twitter', name: 'X / Twitter', icon: XTwitterIcon, color: '#000000', disabled: true },
+  { id: 'blog', name: 'Blog', icon: BlogIcon, color: '#6366f1', href: '/blog' },
 ];
 
 const formatVolume = (vol: number) => {
@@ -328,6 +330,21 @@ export default function Home() {
           {platforms.map((platform) => {
             const Icon = platform.icon;
             const isDisabled = 'disabled' in platform && platform.disabled;
+            const hasHref = 'href' in platform && platform.href;
+
+            if (hasHref) {
+              return (
+                <a
+                  key={platform.id}
+                  href={platform.href}
+                  className="nav-item"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Icon className="nav-icon" />
+                  <span>{platform.name}</span>
+                </a>
+              );
+            }
 
             return (
               <button
@@ -352,9 +369,6 @@ export default function Home() {
         <div style={{ padding: '16px 20px', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
           <div style={{ marginBottom: '12px' }}>Updated every 15 min</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <a href="/blog" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
-              Blog
-            </a>
             <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
               About
             </a>
@@ -709,8 +723,6 @@ export default function Home() {
           fontSize: '13px',
           color: 'var(--text-muted)'
         }}>
-          <a href="/blog" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Blog</a>
-          <span>•</span>
           <a href="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>About</a>
           <span>•</span>
           <a href="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Privacy Policy</a>
