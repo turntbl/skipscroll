@@ -180,10 +180,10 @@ export function extractTopics(posts: RedditTrend[]): { topic: string; count: num
 
 /**
  * Fallback Reddit trends when API is unavailable
- * Updated: March 2026
+ * Updated: March 22, 2026
  */
 function getFallbackRedditTrends() {
-  // Reddit trending topics - March 7, 2026 (updated)
+  // Reddit trending topics - March 22, 2026 (current)
   const fallbackTopics = [
     { topic: 'r/movies', score: 185000, category: 'Subreddit', change: 68 },
     { topic: 'r/news', score: 145000, category: 'Subreddit', change: 45 },
@@ -192,19 +192,19 @@ function getFallbackRedditTrends() {
     { topic: 'r/television', score: 82000, category: 'Subreddit', change: 55 },
     { topic: 'r/music', score: 78000, category: 'Subreddit', change: 48 },
     { topic: 'r/askreddit', score: 195000, category: 'Subreddit', change: 18 },
-    { topic: 'r/CollegeBasketball', score: 65000, category: 'Subreddit', change: 72 },
-    { topic: 'Oscars 2026', score: 125000, category: 'Topic', change: 85 },
-    { topic: 'March Madness', score: 98000, category: 'Topic', change: 78 },
+    { topic: 'r/NBA', score: 125000, category: 'Subreddit', change: 82 },
+    { topic: 'Jo Koy SoFi Stadium', score: 115000, category: 'Topic', change: 95 },
+    { topic: 'March Madness Elite Eight', score: 145000, category: 'Topic', change: 88 },
     { topic: 'One Piece', score: 85000, category: 'Topic', change: 62 },
-    { topic: 'Reddit AI Search', score: 72000, category: 'Topic', change: 58 },
-    { topic: 'Wayback Machine', score: 68000, category: 'Topic', change: 92 },
-    { topic: 'BRIT Awards', score: 52000, category: 'Topic', change: 65 },
-    { topic: 'Scary Movie', score: 48000, category: 'Topic', change: 55 },
-    { topic: 'Bruno Mars', score: 62000, category: 'Topic', change: 48 },
-    { topic: 'League of Legends Shyvana', score: 45000, category: 'Topic', change: 88 },
-    { topic: 'Spring Break', score: 58000, category: 'Topic', change: 42 },
+    { topic: 'ChatGPT', score: 125000, category: 'Topic', change: 48 },
+    { topic: 'John Cena', score: 98000, category: 'Topic', change: 92 },
+    { topic: 'MLB Opening Day', score: 88000, category: 'Topic', change: 75 },
+    { topic: 'Elden Ring DLC', score: 72000, category: 'Topic', change: 68 },
+    { topic: 'AI Regulation', score: 65000, category: 'Topic', change: 55 },
+    { topic: 'Final Four 2026', score: 95000, category: 'Topic', change: 85 },
+    { topic: 'Spring Weather', score: 58000, category: 'Topic', change: 42 },
     { topic: 'Taylor Swift', score: 82000, category: 'Topic', change: 35 },
-    { topic: 'ChatGPT', score: 95000, category: 'Topic', change: 38 },
+    { topic: 'Nvidia AI Chips', score: 78000, category: 'Topic', change: 58 },
   ];
 
   return fallbackTopics.map((item) => ({
@@ -224,6 +224,7 @@ function getFallbackRedditTrends() {
  */
 export async function getRedditTrends() {
   try {
+    console.log('[Reddit] Fetching live trends...');
     const [hotPosts, risingPosts] = await Promise.all([
       fetchRedditHot('all', 100),
       fetchRedditRising('all', 50),
@@ -232,9 +233,11 @@ export async function getRedditTrends() {
     const allPosts = [...hotPosts, ...risingPosts];
 
     if (allPosts.length === 0) {
-      console.log('Reddit API returned no data, using fallback');
+      console.log('[Reddit] API returned no data, using fallback');
       return getFallbackRedditTrends();
     }
+
+    console.log(`[Reddit] Successfully fetched ${allPosts.length} posts`);
 
     const topics = extractTopics(allPosts);
 

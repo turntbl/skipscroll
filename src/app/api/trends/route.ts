@@ -38,7 +38,8 @@ export interface Trend {
 }
 
 export const dynamic = 'force-dynamic'; // Don't cache at build time
-export const revalidate = 300; // Revalidate every 5 minutes
+export const revalidate = 0; // Always fetch fresh data
+export const fetchCache = 'force-no-store'; // Don't use fetch cache
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -126,13 +127,17 @@ export async function GET(request: Request) {
       diverseTrends = trends.sort((a, b) => b.volume - a.volume);
     }
 
-    // Return trends
+    // Return trends with cache-control headers
     return NextResponse.json({
       success: true,
       count: diverseTrends.length,
       trends: diverseTrends.slice(0, 64), // 8 platforms x 8 trends each
       platforms: platformCounts,
       timestamp: new Date().toISOString(),
+    }, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+      },
     });
   } catch (error) {
     console.error('Trends API error:', error);
