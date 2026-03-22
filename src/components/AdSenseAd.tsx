@@ -37,12 +37,17 @@ export function AdSenseAd({
   const publisherId = process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-9923155979879148';
 
   useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.error('AdSense error:', err);
-    }
+    // Wait for next frame to ensure DOM is fully rendered with dimensions
+    const timer = setTimeout(() => {
+      try {
+        // @ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error('AdSense error:', err);
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (

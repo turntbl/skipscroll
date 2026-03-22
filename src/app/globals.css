@@ -1618,6 +1618,8 @@ body {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 10px;
+  min-width: 300px;
+  width: 100%;
 }
 
 .sponsored-label {
@@ -1712,6 +1714,8 @@ body {
   border-radius: 14px;
   padding: 20px;
   margin-bottom: 24px;
+  width: 100%;
+  min-width: 300px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1768,6 +1772,8 @@ body {
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 24px;
+  width: 100%;
+  min-width: 250px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1829,6 +1835,8 @@ body {
   padding: 14px 20px;
   background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
   border-bottom: 1px solid var(--border-light);
+  width: 100%;
+  min-width: 300px;
 }
 
 @media (prefers-color-scheme: dark) {
