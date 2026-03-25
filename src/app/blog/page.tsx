@@ -18,6 +18,14 @@ import {
 
 const blogPosts = [
   {
+    slug: 'ai-tools-content-creation',
+    title: 'AI Tools for Content Creation: How to Work Smarter, Not Harder',
+    excerpt: 'Discover how AI-powered tools can supercharge your content creation workflow, from ideation to optimization, while keeping your authentic voice.',
+    date: '2026-03-25',
+    category: 'Content Strategy',
+    readTime: '9 min read',
+  },
+  {
     slug: 'spotting-trends-before-they-peak',
     title: 'How to Spot Trending Topics Before They Peak: A Data-Driven Approach',
     excerpt: 'Master the art of early trend detection to create viral content, stay ahead of competitors, and maximize engagement when it matters most.',
