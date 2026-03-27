@@ -18,6 +18,14 @@ import {
 
 const blogPosts = [
   {
+    slug: 'bluesky-vs-twitter-2026',
+    title: 'Bluesky vs Twitter/X in 2026: Which Platform Should You Choose?',
+    excerpt: 'A comprehensive comparison of Bluesky and Twitter/X in 2026, covering features, algorithms, communities, and which platform is right for your goals.',
+    date: '2026-03-27',
+    category: 'Platform Guide',
+    readTime: '10 min read',
+  },
+  {
     slug: 'monetizing-trends-creator-revenue',
     title: 'Monetizing Trends: How to Turn Viral Moments into Revenue',
     excerpt: 'Learn proven strategies to monetize trending content, from brand deals and affiliate marketing to digital products and platform payouts.',
