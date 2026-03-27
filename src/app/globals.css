@@ -889,9 +889,11 @@ body {
 
 .panel-content {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 24px;
   min-height: 0;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .panel-title {
