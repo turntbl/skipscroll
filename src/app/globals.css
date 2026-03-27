@@ -891,6 +891,7 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 24px;
+  min-height: 0;
 }
 
 .panel-title {
