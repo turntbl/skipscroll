@@ -30,9 +30,13 @@ export default function BlogPost() {
             <span>8 min read</span>
           </div>
 
-          <h1 style={{ fontSize: '42px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 20px' }}>
+          <h1 style={{ fontSize: '42px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 16px' }}>
             How to Use Trending Data for Content Creation: A Complete Guide
           </h1>
+
+          <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px' }}>
+            By SkipScroll Team
+          </p>
 
           <p style={{ fontSize: '20px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
             Learn how to leverage real-time trending data to create viral content, boost engagement, and stay ahead of the curve on social media.

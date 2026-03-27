@@ -24,9 +24,13 @@ export default function BlogPost() {
             <span>9 min read</span>
           </div>
 
-          <h1 style={{ fontSize: '42px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 20px' }}>
+          <h1 style={{ fontSize: '42px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 16px' }}>
             AI Tools for Content Creation: How to Work Smarter, Not Harder
           </h1>
+
+          <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px' }}>
+            By SkipScroll Team
+          </p>
 
           <p style={{ fontSize: '20px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
             The content creation landscape has transformed dramatically with AI. Here&apos;s how to leverage these powerful tools while maintaining your unique creative voice.

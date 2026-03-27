@@ -30,9 +30,13 @@ export default function BlogPost() {
             <span>7 min read</span>
           </div>
 
-          <h1 style={{ fontSize: '42px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 20px' }}>
+          <h1 style={{ fontSize: '42px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 16px' }}>
             Staying Informed Without the Burnout: A Guide to Healthy Social Media Consumption
           </h1>
+
+          <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px' }}>
+            By SkipScroll Team
+          </p>
 
           <p style={{ fontSize: '20px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
             You can stay updated on trends and news without sacrificing your mental health, productivity, or precious time to endless scrolling.

@@ -30,9 +30,13 @@ export default function BlogPost() {
             <span>10 min read</span>
           </div>
 
-          <h1 style={{ fontSize: '48px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 24px' }}>
+          <h1 style={{ fontSize: '48px', fontWeight: '700', lineHeight: '1.2', margin: '0 0 16px' }}>
             How to Spot Trending Topics Before They Peak: A Data-Driven Approach
           </h1>
+
+          <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px' }}>
+            By SkipScroll Team
+          </p>
 
           <p style={{ fontSize: '20px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
             Master the art of early trend detection to create viral content, stay ahead of competitors, and maximize engagement when it matters most.
