@@ -1,13 +1,49 @@
 import Link from 'next/link';
+import { BlogArticleSchema, BreadcrumbSchema } from '@/components/StructuredData';
 
 export const metadata = {
-  title: 'Bluesky vs Twitter/X in 2026: Which Platform Should You Choose? - SkipScroll Blog',
+  title: 'Bluesky vs Twitter/X in 2026: Which Platform Should You Choose?',
   description: 'A comprehensive comparison of Bluesky and Twitter/X in 2026, covering features, algorithms, communities, and which platform is right for your goals.',
+  keywords: ['bluesky', 'twitter', 'x', 'bluesky vs twitter', 'bluesky vs x', 'social media platforms', 'microblogging', 'twitter alternative', 'decentralized social media', 'at protocol', 'elon musk twitter', 'bluesky 2026', 'twitter x 2026'],
+  authors: [{ name: 'SkipScroll Team' }],
+  openGraph: {
+    title: 'Bluesky vs Twitter/X in 2026: Which Platform Should You Choose?',
+    description: 'A comprehensive comparison of Bluesky and Twitter/X in 2026. Learn which microblogging platform is right for your goals.',
+    type: 'article',
+    url: 'https://skipscroll.com/blog/bluesky-vs-twitter-2026',
+    publishedTime: '2026-03-27T00:00:00.000Z',
+    modifiedTime: '2026-03-27T00:00:00.000Z',
+    authors: ['SkipScroll Team'],
+    tags: ['Bluesky', 'Twitter', 'X', 'Social Media', 'Platform Comparison'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bluesky vs Twitter/X in 2026: Which Platform Should You Choose?',
+    description: 'A comprehensive comparison of Bluesky and Twitter/X to help you decide where to invest your time.',
+  },
+  alternates: {
+    canonical: 'https://skipscroll.com/blog/bluesky-vs-twitter-2026',
+  },
 };
 
 export default function BlogPost() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+      <BlogArticleSchema
+        headline="Bluesky vs Twitter/X in 2026: Which Platform Should You Choose?"
+        description="A comprehensive comparison of Bluesky and Twitter/X in 2026, covering features, algorithms, communities, and which platform is right for your goals."
+        datePublished="2026-03-27T00:00:00.000Z"
+        dateModified="2026-03-27T00:00:00.000Z"
+        author="SkipScroll Team"
+        url="https://skipscroll.com/blog/bluesky-vs-twitter-2026"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://skipscroll.com' },
+          { name: 'Blog', url: 'https://skipscroll.com/blog' },
+          { name: 'Bluesky vs Twitter/X in 2026', url: 'https://skipscroll.com/blog/bluesky-vs-twitter-2026' },
+        ]}
+      />
       <article style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
         <Link href="/blog" style={{ color: '#6366f1', textDecoration: 'none', fontSize: '14px' }}>
           ← Back to Blog
