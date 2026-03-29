@@ -18,6 +18,14 @@ import {
 
 const blogPosts = [
   {
+    slug: 'tiktok-trends-2026',
+    title: 'TikTok Trends 2026: How to Go Viral on TikTok',
+    excerpt: 'Discover the latest TikTok trends in 2026 and learn proven strategies to go viral. From trending sounds to hashtags, master the TikTok algorithm and grow your following.',
+    date: '2026-03-28',
+    category: 'TikTok Strategy',
+    readTime: '12 min read',
+  },
+  {
     slug: 'bluesky-vs-twitter-2026',
     title: 'Bluesky vs Twitter/X in 2026: Which Platform Should You Choose?',
     excerpt: 'A comprehensive comparison of Bluesky and Twitter/X in 2026, covering features, algorithms, communities, and which platform is right for your goals.',
