@@ -24,6 +24,7 @@ import {
 } from '@/components/icons';
 import { TrendDetailPanel } from '@/components/TrendDetailPanel';
 import { DisplayAd, InFeedAd } from '@/components/AdSenseAd';
+import { ContentIdeaGenerator } from '@/components/ContentIdeaGenerator';
 
 interface RedditPost {
   id: string;
@@ -413,6 +414,78 @@ export default function Home() {
           }}>
             {error}. Please try again.
           </div>
+        )}
+
+        {/* Introduction Section - Original Content for SEO */}
+        {selectedPlatform === 'all' && !loading && (
+          <section style={{
+            background: 'var(--bg-secondary)',
+            padding: '32px',
+            borderRadius: '16px',
+            marginBottom: '32px',
+            border: '1px solid var(--border-light)'
+          }}>
+            <h1 style={{
+              fontSize: '28px',
+              fontWeight: '700',
+              marginBottom: '16px',
+              color: 'var(--text-primary)'
+            }}>
+              Track Social Media Trends Across All Platforms
+            </h1>
+            <p style={{
+              fontSize: '16px',
+              lineHeight: '1.7',
+              color: 'var(--text-secondary)',
+              marginBottom: '16px'
+            }}>
+              SkipScroll is your command center for social media trends. We aggregate real-time trending data from <strong>TikTok, Instagram, YouTube, Reddit, Google Trends, Spotify, Twitch, and Bluesky</strong>—giving you a complete view of what's trending across the internet in one dashboard.
+            </p>
+            <p style={{
+              fontSize: '16px',
+              lineHeight: '1.7',
+              color: 'var(--text-secondary)',
+              marginBottom: '16px'
+            }}>
+              Whether you're a content creator looking for your next viral idea, a marketer tracking brand mentions, or just someone who wants to stay informed without endless scrolling—SkipScroll delivers the insights you need in seconds, not hours.
+            </p>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '16px',
+              marginTop: '24px'
+            }}>
+              <div>
+                <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: 'var(--text-primary)' }}>
+                  🔄 Updated Every 15 Minutes
+                </h3>
+                <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
+                  Fresh trend data synced across all platforms so you're always ahead of the curve
+                </p>
+              </div>
+              <div>
+                <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: 'var(--text-primary)' }}>
+                  📊 8+ Platforms in One Place
+                </h3>
+                <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
+                  Stop juggling multiple apps—see what's trending everywhere from one dashboard
+                </p>
+              </div>
+              <div>
+                <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: 'var(--text-primary)' }}>
+                  ✨ AI Content Ideas
+                </h3>
+                <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>
+                  Turn any trend into content ideas instantly with our AI-powered generator
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* AI Content Idea Generator - Above the fold */}
+        {selectedPlatform === 'all' && !loading && (
+          <ContentIdeaGenerator />
         )}
 
         {/* Platform Spotlight Grid - Only show on "All Platforms" view */}
