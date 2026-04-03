@@ -18,6 +18,14 @@ import {
 
 const blogPosts = [
   {
+    slug: 'instagram-algorithm-2026',
+    title: 'Instagram Algorithm 2026: How to Beat the Algorithm and Get More Reach',
+    excerpt: 'Master Instagram\'s algorithm in 2026 with our comprehensive guide. Learn how Instagram ranks content, what signals matter most, and proven strategies to increase your reach and engagement.',
+    date: '2026-04-03',
+    category: 'Instagram Strategy',
+    readTime: '15 min read',
+  },
+  {
     slug: 'tiktok-trends-2026',
     title: 'TikTok Trends 2026: How to Go Viral on TikTok',
     excerpt: 'Discover the latest TikTok trends in 2026 and learn proven strategies to go viral. From trending sounds to hashtags, master the TikTok algorithm and grow your following.',
